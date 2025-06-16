@@ -14,29 +14,43 @@
   <body>
     <a-scene embedded arjs>
       
-      <!-- Marker points to assets folder -->
+      <!-- Marker-based content -->
       <a-marker type="pattern" url="assets/pattern-hiro.patt">
-        
-        <!-- A cube on the marker -->
+
+        <!-- Ground plane (fake surface) -->
+        <a-plane 
+          position="0 0 0" 
+          rotation="-90 0 0" 
+          width="2" 
+          height="2" 
+          color="#AAAAAA" 
+          shadow="receive: true">
+        </a-plane>
+
+        <!-- Cube on top of marker -->
         <a-box 
-          position="0 0.5 0" 
+          position="0 0.25 0" 
           rotation="0 45 0" 
           color="#4CC3D9" 
           depth="0.5" 
           height="0.5" 
-          width="0.5">
+          width="0.5" 
+          shadow="cast: true">
         </a-box>
 
-        <!-- Optional text above the cube -->
+        <!-- Text label -->
         <a-text 
           value="Neeshu Gautam\nSoftware Developer" 
-          position="-0.75 1.1 0" 
+          position="-0.75 0.8 0" 
           color="yellow" 
           width="2">
         </a-text>
-
+        
       </a-marker>
 
+      <!-- Light and camera -->
+      <a-entity light="type: directional; intensity: 0.8;" position="1 2 1"></a-entity>
+      <a-entity light="type: ambient; intensity: 0.5;"></a-entity>
       <a-entity camera></a-entity>
     </a-scene>
   </body>
